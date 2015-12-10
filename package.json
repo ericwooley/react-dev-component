@@ -1,14 +1,17 @@
 {
-  "name": "react-hot-boilerplate",
-  "version": "1.0.0",
-  "description": "Boilerplate for ReactJS project with hot code reloading",
+  "name": "react-dev-component",
+  "version": "0.0.1",
+  "description": "Develop a single react component with prop editing, based on react boilerplate",
   "scripts": {
     "start": "node server.js",
-    "lint": "eslint src"
+    "dev": "node server.js --component test/test-component.js"
+  },
+  "bin": {
+    "react-dev-component": "server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gaearon/react-hot-boilerplate.git"
+    "url": "https://github.com/ericwooley/react-dev-component.git"
   },
   "keywords": [
     "react",
@@ -21,13 +24,13 @@
     "edit",
     "webpack"
   ],
-  "author": "Dan Abramov <dan.abramov@me.com> (http://github.com/gaearon)",
+  "author": "Eric Wooley <ericwooley@gmail.com> (http://github.com/ericwooley)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gaearon/react-hot-boilerplate/issues"
+    "url": "https://github.com/ericwooley/react-dev-component/issues"
   },
-  "homepage": "https://github.com/gaearon/react-hot-boilerplate",
-  "devDependencies": {
+  "homepage": "https://github.com/ericwooley/react-dev-component",
+  "dependencies": {
     "babel-core": "^6.0.20",
     "babel-eslint": "^4.1.3",
     "babel-loader": "^6.0.1",
@@ -35,11 +38,11 @@
     "babel-preset-react": "^6.0.15",
     "babel-preset-stage-0": "^6.0.15",
     "eslint-plugin-react": "^3.6.2",
+    "minimist": "^1.2.0",
     "react-hot-loader": "^1.3.0",
     "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.12.1"
-  },
-  "dependencies": {
+    "webpack-dev-server": "^1.12.1",
+    "brace": "^0.7.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0"
   }

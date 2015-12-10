@@ -1,5 +1,11 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
+var webpack = require('webpack')
+
+var argv = require('minimist')(process.argv.slice(2))
+var componentPath = path.join(process.cwd(), argv.component)
+var testModulePath = componentPath.split('/')
+testModulePath.pop()
+testModulePath = testModulePath.join('/')
 
 module.exports = {
   devtool: 'eval',
@@ -20,7 +26,7 @@ module.exports = {
     loaders: [{
       test: /\.js$/,
       loaders: ['react-hot', 'babel'],
-      include: path.join(__dirname, 'src')
+      include: [path.join(__dirname, 'src'), path.join(process.cwd(), 'test')]
     }]
   }
-};
+}
