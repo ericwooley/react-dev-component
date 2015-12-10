@@ -3,11 +3,19 @@ import React, {Component, PropTypes} from 'react'
 import AceEditor from 'react-ace'
 require('brace/mode/javascript')
 require('brace/theme/github')
+
+function getDefaultVal (obj = {value: 'consider adding some default props'}) {
+  return `
+return ${JSON.stringify(obj, null, 2)}
+`
+}
+
 class ComponentPreview extends Component {
   constructor (props) {
     super(props)
+    const defaultVal = getDefaultVal(props.component.defaultProps)
     this.state = {
-      aceValue: 'return {}',
+      aceValue: defaultVal,
       testProps: {}
     }
   }
@@ -43,11 +51,11 @@ class ComponentPreview extends Component {
               theme='github'
               onChange={this.onChange.bind(this)}
               name='UNIQUE_ID_OF_DIV'
-              editorProps={{$blockScrolling: true}}
             />
           <pre>
           {'})()'}
           </pre>
+          <span style={{color: 'red'}}>{this.state.error}</span>
         </div>
         <div><Component {...this.state.testProps} /></div>
       </div>

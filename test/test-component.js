@@ -12,4 +12,7 @@ TestComponent.displayName = 'TestComponent'
 TestComponent.propTypes = {
   value: PropTypes.string
 }
+TestComponent.defaultProps = {
+  value: 'test'
+}
 export default TestComponent

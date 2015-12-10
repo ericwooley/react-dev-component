@@ -8,13 +8,13 @@ var config = require(path.join(__dirname, 'webpack.config'))
 var argv = require('minimist')(process.argv.slice(2))
 var componentPath = path.join(process.cwd(), argv.component)
 var fs = require('fs')
-var file = path.join(__dirname, 'src/index.js')
+var file = path.join(__dirname, 'src/index.template.js')
 var data = fs.readFileSync(file).toString()
 var replacementString = 'import Component from \'' + componentPath + '\''
 data = data.replace(
   /\/\* replace-start \*\/.*\/\* replace-end \*\//g,
   '/* replace-start */ ' + replacementString + ' /* replace-end */')
-fs.writeFileSync(file, data)
+fs.writeFileSync(path.join(__dirname, 'src/index.js'), data)
 
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
