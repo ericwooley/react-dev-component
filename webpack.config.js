@@ -7,12 +7,13 @@ var testModulePath = componentPath.split('/')
 testModulePath.pop()
 testModulePath = testModulePath.join('/')
 
+console.log('loading module', componentPath, 'from', testModulePath)
 module.exports = {
   devtool: 'eval',
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    './src/index'
+    path.join(__dirname, './src/index')
   ],
   output: {
     path: path.join(__dirname, 'dist'),
