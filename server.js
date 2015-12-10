@@ -11,9 +11,7 @@ var fs = require('fs')
 var file = path.join(__dirname, 'src/index.template.js')
 var data = fs.readFileSync(file).toString()
 var replacementString = 'import Component from \'' + componentPath + '\''
-data = data.replace(
-  /\/\* replace-start \*\/.*\/\* replace-end \*\//g,
-  '/* replace-start */ ' + replacementString + ' /* replace-end */')
+data = data.replace('/* replace-me */', replacementString)
 fs.writeFileSync(path.join(__dirname, 'src/index.js'), data)
 
 new WebpackDevServer(webpack(config), {

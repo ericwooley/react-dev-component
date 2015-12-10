@@ -1,7 +1,8 @@
 'use babel'
 import React, {Component, PropTypes} from 'react'
 import AceEditor from 'react-ace'
-require('brace/mode/javascript')
+// It appears Javascript is broken
+require('brace/mode/java')
 require('brace/theme/github')
 
 function getDefaultVal (obj = {value: 'consider adding some default props'}) {
@@ -41,23 +42,26 @@ class ComponentPreview extends Component {
     var Component = this.props.component
     return (
       <div>
-        <div style={{float: 'left', display: 'inline-block'}}>
+        <div style={{float: 'left', display: 'inline-block', margin: '10px', border: '1px solid black'}}>
           <pre>
           {'(function() {'}
           </pre>
             <AceEditor
               value={this.state.aceValue}
-              mode='javascript'
+              mode='java'
               theme='github'
               onChange={this.onChange.bind(this)}
               name='UNIQUE_ID_OF_DIV'
+              editorProps={{$blockScrolling: true}}
             />
           <pre>
           {'})()'}
           </pre>
           <span style={{color: 'red'}}>{this.state.error}</span>
         </div>
-        <div><Component {...this.state.testProps} /></div>
+        <div style={{display: 'inline-block', margin: '10px', border: '1px solid black', padding: '20px'}}>
+          <Component {...this.state.testProps} />
+        </div>
       </div>
 
     )

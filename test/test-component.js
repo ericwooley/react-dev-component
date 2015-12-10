@@ -5,7 +5,11 @@ class TestComponent extends Component {
     this.state = {}
   }
   render () {
-    return (<h3>Test Component {this.props.value}</h3>)
+    return (
+      <div>
+        <h3>Test Component</h3>
+        <p>{this.props.value}</p>
+      </div>)
   }
 }
 TestComponent.displayName = 'TestComponent'
