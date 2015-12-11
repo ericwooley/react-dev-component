@@ -7,16 +7,18 @@ class TestComponent extends Component {
   render () {
     return (
       <div>
-        <h3>Test Component</h3>
-        <p>{this.props.value}</p>
+        <h2>{this.props.title}</h2>
+        <h1>{this.props.body}</h1>
       </div>)
   }
 }
 TestComponent.displayName = 'TestComponent'
 TestComponent.propTypes = {
-  value: PropTypes.string
+  title: PropTypes.string,
+  body: PropTypes.string
 }
 TestComponent.defaultProps = {
-  value: 'test'
+  title: 'React hot loader, for a single component',
+  body: 'Changing your component live updates here as well.'
 }
 export default TestComponent

@@ -6,9 +6,7 @@ require('brace/mode/java')
 require('brace/theme/github')
 
 function getDefaultVal (obj = {value: 'consider adding some default props'}) {
-  return `
-return ${JSON.stringify(obj, null, 2)}
-`
+  return `return ${JSON.stringify(obj, null, 2)}`
 }
 
 class ComponentPreview extends Component {
