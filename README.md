@@ -1,6 +1,8 @@
 react-dev-component
 =====================
 
+<img src='http://i.imgur.com/iUSozXn.gif' width=500 />
+
 The minimal dev environment to enable live-editing React components with text input for to define
 your props
 
@@ -29,3 +31,5 @@ TestComponent.propTypes = {
 export default TestComponent
 
 ```
+
+
